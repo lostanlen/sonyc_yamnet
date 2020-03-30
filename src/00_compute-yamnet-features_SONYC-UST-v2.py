@@ -1,19 +1,12 @@
-from __future__ import division, print_function
-
 import sys
 
-import autopool
 import keras
-import librosa
-from librosa.display import specshow
-from matplotlib import pyplot as plt
 import numpy as np
 import os
 import pandas as pd
 import resampy
 import soundfile as sf
 import tensorflow as tf
-import tqdm
 import warnings
 
 import params
