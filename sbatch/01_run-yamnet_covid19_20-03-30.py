@@ -4,8 +4,9 @@ import os
 script_name = os.path.basename(__file__)
 
 
-data_dir = "/scratch/mc6591/covid_audio"
-glob_regexp = os.path.join(data_dir, "/sonycnode-*.sonyc")
+in_data_dir = "/scratch/mc6591/covid_audio"
+out_data_dir = "/scratch/vl1019/c19_data"
+glob_regexp = os.path.join(in_data_dir, "/sonycnode-*.sonyc")
 sensor_dirs = glob.glob(glob_regexp)
 
 
@@ -14,6 +15,7 @@ for sensor_dir in sensor_dirs:
     sensor_dirname = os.path.split(sensor_dir)[1]
     sonycnode_str = os.path.splitext(sensor_dirname)[0]
     job_name = "_".join([script_name[:2], sonycnode_str])
+    script_path_with_args = " ".join([script_name, sensor_dir, out_data_dir])
     with open(file_path, "w") as f:
         f.write("#!/bin/bash\n")
         f.write("\n")
@@ -28,7 +30,8 @@ for sensor_dir in sensor_dirs:
         f.write("module purge\n")
         f.write("conda activate c19\n")
         f.write("\n")
-        f.write("# The argument is the path to the SONYC sensor.\n")
+        f.write("# The first argument is the path to the SONYC sensor.\n")
+        f.write("# The second argument is the path to the output directory.\n")
         f.write("python " + script_path_with_args)
 
 # Open shell file.
