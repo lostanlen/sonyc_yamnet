@@ -24,6 +24,8 @@ for sensor_dir in sensor_dirs:
     sensor_dirname = os.path.split(sensor_dir)[1]
     sonycnode_str = os.path.splitext(sensor_dirname)[0]
     job_name = "_".join([script_name[:2], sonycnode_str])
+    file_name = job_name + ".sbatch"
+    file_path = os.path.join(sbatch_dir, file_name)
     script_path_with_args = " ".join([script_name, sensor_dir, out_data_dir])
     with open(file_path, "w") as f:
         f.write("#!/bin/bash\n")
