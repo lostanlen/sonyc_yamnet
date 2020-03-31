@@ -6,7 +6,7 @@ script_name = os.path.basename(__file__)
 # Define constants
 in_data_dir = "/scratch/mc6591/covid_audio"
 out_data_dir = "/scratch/vl1019/c19_data"
-glob_regexp = os.path.join(in_data_dir, "/sonycnode-*.sonyc")
+glob_regexp = os.path.join(in_data_dir, "sonycnode-*.sonyc")
 
 # Define script name
 script_name = os.path.basename(__file__)
