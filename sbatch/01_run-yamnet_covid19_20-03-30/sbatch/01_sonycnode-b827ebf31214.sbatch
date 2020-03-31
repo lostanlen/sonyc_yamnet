@@ -12,4 +12,4 @@ module purge
 
 # The first argument is the path to the SONYC sensor.
 # The second argument is the path to the output directory.
-python ../../../src/01_run-yamnet_covid19_20-03-30.py /scratch/mc6591/covid_audio/sonycnode-b827ebf31214.sonyc /scratch/vl1019/c19_data
+python ../../../src/01_run-yamnet_covid19_20-03-30.py /scratch/mc6591/covid_audio/sonycnode-b827ebf31214.sonyc /beegfs/vl1019/c19_data
