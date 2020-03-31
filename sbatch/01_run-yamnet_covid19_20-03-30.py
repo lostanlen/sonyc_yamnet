@@ -39,7 +39,6 @@ for sensor_dir in sensor_dirs:
         f.write("#SBATCH --output=" + "../slurm/" + job_name + "_%j.out\n")
         f.write("\n")
         f.write("module purge\n")
-        f.write("conda activate c19\n")
         f.write("\n")
         f.write("# The first argument is the path to the SONYC sensor.\n")
         f.write("# The second argument is the path to the output directory.\n")
