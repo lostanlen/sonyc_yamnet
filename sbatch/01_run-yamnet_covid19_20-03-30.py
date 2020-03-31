@@ -3,14 +3,23 @@ import os
 
 script_name = os.path.basename(__file__)
 
-
+# Define constants
 in_data_dir = "/scratch/mc6591/covid_audio"
 out_data_dir = "/scratch/vl1019/c19_data"
 glob_regexp = os.path.join(in_data_dir, "/sonycnode-*.sonyc")
+
+# Define script name
+script_name = os.path.basename(__file__)
+script_path = os.path.join("..", "..", "..", "src", script_name)
+
+# Create folder.
+sbatch_dir = os.path.join(script_name[:-3], "sbatch")
+os.makedirs(sbatch_dir, exist_ok=True)
+slurm_dir = os.path.join(script_name[:-3], "slurm")
+os.makedirs(slurm_dir, exist_ok=True)
+
+# Create SLURM sbatch files. Loop over sensors.
 sensor_dirs = glob.glob(glob_regexp)
-
-
-# Create SLURM sbatch files.
 for sensor_dir in sensor_dirs:
     sensor_dirname = os.path.split(sensor_dir)[1]
     sonycnode_str = os.path.splitext(sensor_dirname)[0]
