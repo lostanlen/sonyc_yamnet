@@ -20,23 +20,21 @@ args = sys.argv[1:]
 sensor_dir = str(args[0])
 sensor_str = os.path.split(sensor_dir)[1]
 
-# Parse parameters.
-yamnet_params = {
-    k: params.__dict__[k] for k in params.__dict__ if k == k.upper()}
-for yamnet_param in yamnet_params:
-    print(yamnet_param + " = " + yamnet_params[yamnet_param])
-
 # Print header.
 start_time = int(time.time())
-print(__file__)
 print(str(datetime.datetime.now()) + " Start.")
 print("Running YAMNET on SONYC recordings for sensor " + sensor_str)
 print("Directory: " + sensor_str)
 print("")
-print("numpy version: {:s}".format(jams.__version__))
-print("tensorflow version: {:s}".format(librosa.__version__))
-print("muda version: {:s}".format(muda.__version__))
 print("numpy version: {:s}".format(np.__version__))
+print("tensorflow version: {:s}".format(tf.__version__))
+print("")
+
+# Parse parameters.
+yamnet_params = {
+    k: params.__dict__[k] for k in params.__dict__ if k == k.upper()}
+for yamnet_param in yamnet_params:
+    print(yamnet_param + " = " + str(yamnet_params[yamnet_param]))
 print("")
 
 # Load YAMNet.
@@ -73,8 +71,6 @@ for sonyc_path in sonyc_paths:
     sonyc_npz = np.load(sonyc_path)
     waveform = sonyc_npz["x"]
     yamnet_feature, yamnet_pred = yamnet_multi_model.predict(waveform, steps=1)
-
-
 
 # Print elapsed time.
 print(str(datetime.datetime.now()) + " Finish.")
