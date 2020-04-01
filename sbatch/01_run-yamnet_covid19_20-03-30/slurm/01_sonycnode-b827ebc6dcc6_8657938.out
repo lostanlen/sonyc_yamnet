@@ -1,0 +1,34 @@
+2020-03-31 10:01:51.666427: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2020-03-31 10:01:51.679942: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2594145000 Hz
+2020-03-31 10:01:51.680051: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x2b182400d060 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-03-31 10:01:51.680066: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-03-31 10:01:51.680146: I tensorflow/core/common_runtime/process_util.cc:147] Creating new thread pool with default inter op setting: 2. Tune using inter_op_parallelism_threads for best performance.
+2020-03-31 10:01:51.181225 Start.
+Running YAMNET on SONYC recordings for sensor b827ebc6dcc6
+Directory: /scratch/mc6591/covid_audio/sonycnode-b827ebc6dcc6.sonyc
+
+numpy version: 1.18.1
+tensorflow version: 2.1.0
+
+SAMPLE_RATE = 16000
+STFT_WINDOW_SECONDS = 0.025
+STFT_HOP_SECONDS = 0.01
+MEL_BANDS = 64
+MEL_MIN_HZ = 125
+MEL_MAX_HZ = 7500
+LOG_OFFSET = 0.001
+PATCH_WINDOW_SECONDS = 0.96
+PATCH_HOP_SECONDS = 0.48
+PATCH_FRAMES = 96
+PATCH_BANDS = 64
+NUM_CLASSES = 521
+CONV_PADDING = same
+BATCHNORM_CENTER = True
+BATCHNORM_SCALE = False
+BATCHNORM_EPSILON = 0.0001
+CLASSIFIER_ACTIVATION = sigmoid
+FEATURES_LAYER_NAME = features
+EXAMPLE_PREDICTIONS_LAYER_NAME = predictions
+
+2020-03-31 16:23:02.238962 Finish.
+Total elapsed time: 06:21:11.35.
